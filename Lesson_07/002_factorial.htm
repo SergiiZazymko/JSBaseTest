@@ -1,0 +1,27 @@
+﻿<html>
+<head>
+    <title>Факториал</title>
+
+    <script type="text/javascript">
+
+       var a = +prompt('enter number');
+       var n = +prompt('enter value');
+       function game(a,n){
+        if(n==1){
+            return 1
+        }
+        n--
+        return a*game(n-1)
+
+       }
+      var res = game(a,n);
+      document.write(res)
+    </script>
+
+</head>
+<body>
+
+    <!-- Разметка страници -->
+
+</body>
+</html>

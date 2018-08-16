@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="test">Test 1</div>
+    <div class="test">Test 2</div>
+    <div class="test">Test 3</div>
+    <div class="test">Test 4</div>
+    <button onclick="changeText();">Change text</button>
+
+    <script>
+        function changeText() {
+            var collection = document.getElementsByClassName('test');
+            console.log(collection);
+            for (var i = collection.length - 1; i >= 0; i--) {
+                collection[i].innerHTML = 'Hello world';
+                if (2 == i) {
+                    collection[i].innerHTML = 'HELLO WORLD';
+                }
+            }
+        }
+    </script>
+</body>
+</html>

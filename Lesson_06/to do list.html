@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+</style>
+	<title></title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.header {
+			background: red;
+			text-align: center;
+			padding: 10px;
+		}
+		ul {
+			list-style-type: none;
+		}
+		ul li:nth-child(odd) {
+			background-color: green;
+		}
+		ul li:nth-child(even) {
+			background-color: yellow;
+		}
+		li {
+			padding: 10px;
+		}
+		li:hover {
+			background: lime;
+			cursor: pointer;
+		}
+		span {
+			float: right;
+		}
+		.checked {
+			text-decoration: line-through;
+		}
+	</style>
+</head>
+<body>
+<!-- 1.делаем шапку списка с инпутом и кнопкой;
+2.делаем список со списком дел;
+3.берем все li, перебираем циклом;
+4.в цикле создаем спан;
+5.в спан записываем крестик;
+6.к каждому элементу списка добавляем span;
+7.вешаем на клик по каждому элементу списка класс лист чекд;
+8.берем все спаны на странице;
+и перебираем их циклом
+9.при клике на спан ставим родителю(li) display -none
+10.Берем кнопку со страници;
+11.При нажатии на кнопку вешаем функцию(New Item)
+12.в функции берем инпут
+13. создаем li
+14.записываем в инпут value инпута;
+15. берем список со страници и добавляем к нему li;
+16. Добавляем в функцию код, который писали выше
+ -->
+<div class="header">
+	<h1>ToDo LIst</h1>
+	<input type="text" id="input">
+	<button id="button">Add deal</button>
+</div>
+<ul id="ul">
+	<li>Some task</li>
+	<li>Some task</li>
+	<li>Some task</li>
+	<li>Some task</li>
+	<li>Some task</li>
+	<li>Some task</li>
+</ul>
+<script>
+	var li = document.getElementsByTagName('li');
+	var button = document.getElementById('button');
+	var input = document.getElementById('input');
+	var ul = document.getElementById('ul');
+	for (let i = 0; i < li.length; i++) {
+	    var span = document.createElement('span');
+	    span.innerHTML = 'x';
+	    li[i].appendChild(span);
+	    li[i].onclick = function () {
+	        li[i].classList.toggle('checked');
+		}
+	}
+	var close = document.getElementsByTagName('span');
+	for (let j = 0; j < close.length; j++) {
+	    close[j].onclick = function () {
+	        close[j].parentElement.style.display = 'none';
+		}
+	}
+	button.onclick = function(){
+	    var li = document.createElement('li');
+	    li.innerHTML = input.value;
+	    ul.appendChild(li);
+        var span = document.createElement('span');
+        span.innerHTML = 'x';
+        li.appendChild(span);
+        span.onclick = function () {
+			span.parentElement.style.display = 'none';
+        }
+	}
+</script>
+</body>
+</html>

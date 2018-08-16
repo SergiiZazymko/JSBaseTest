@@ -1,0 +1,143 @@
+﻿<!-- 
+    1. Создать объект Point, содержащий два свойства: "x" и "y" — координаты точки, и метод GetQuadrant, вычисляющий,
+       в каком квадранте в декартовой системе координат находится данная точка.
+       Протестируйте данный объект, изменяя значения его координат, и повторно вызавая метод GetQuadrant.
+    
+    2. Создать объект Calculator, который должен содержать методы для расчета суммы, разности, произведения и частного двух чисел.
+       Протестировать данный объект, принимая от пользователя значения двух операндов и знак операции.
+       В зависимости от принятого знака операции, вызвать соответствующий метод.
+
+    3. Создать массив, который будет хранить в себе информацию о сотрудниках предприятия. Каждый элемент масива — объект,
+       содержащий свойства: name, sName, age, occupation, и метод show, который выводит всю информацию о пользователе.
+       Реализовать заполнение массива пользователем. По окончанию заполнения — вывести информацию о сотрудниках.
+    
+    4. Для предыдущего задания создайте функцию, которая будет принимать в себя массив объектов-сотрудников, и каждому из объектов
+       будет добавлять новое свойство "salary", хранящее зарплату сотрудника. 
+       Зарплата расчитывается, исходя из значения свойства "occupation" следующим образом:
+           • "director" — 3000;
+           • "manager" — 1500;
+           • "programmer" — 2000;
+           • для остальных значений — 1000.
+       После выполнения функции — вывести информацию о сотрудниках.
+           
+    5. Для задания 3 создать метод, позволяющий отсортировать массив сотрудников по одному из свойств: name, sName, age, occupation, salary.
+       Параметр для сортировки принимается от пользователя.
+       После выполнения функции — вывести информацию о сотрудниках.
+
+     -->
+     <!DOCTYPE html>
+     <html xmlns="http://www.w3.org/1999/xhtml">
+     <head>
+      <title></title>
+
+    </head>
+    <body>
+
+    <script>
+        // var Point = {
+        //     x : undefined,
+        //     y : undefined,
+        //     getQuadrant : function () {
+        //         switch (this.x > 0) {
+        //             case true:
+        //                 switch (this.y > 0) {
+        //                     case true:
+        //                         return 2;
+        //                     case false:
+        //                         return 3;
+        //                 }
+        //             case false:
+        //                 switch (this.y > 0) {
+        //                     case true:
+        //                         return 1;
+        //                     case false:
+        //                         return 4;
+        //                 }
+        //         }
+        //
+        //     }
+        // }
+        //
+        // Point.x = 1;
+        // Point.y = 1;
+        // console.log(Point.getQuadrant());
+    </script>
+
+    <script>
+        // Calculator = {
+        //     x : undefined,
+        //     y : undefined,
+        //     sum : function () {
+        //         return this.x + this.y;
+        //     },
+        //     minus : function () {
+        //         return this.x - this.y;
+        //     },
+        //     umn : function () {
+        //         return this.x * this.y;
+        //     },
+        //     divi : function () {
+        //         return this.x / this.y;
+        //     },
+        //     operators : {
+        //         '+' : '+',
+        //         '-' : '-',
+        //         '*' : '*',
+        //         '/' : '/',
+        //     },
+        //     calculate : function (operator) {
+        //         if (operator in this.operators) {
+        //             switch (operator) {
+        //                 case '+':
+        //                     return this.sum();
+        //                 case '-':
+        //                     return this.minus();
+        //                 case '*':
+        //                     return this.umn();
+        //                 case '/':
+        //                     return this.divi();
+        //             }
+        //         }
+        //     },
+        //     isNumeric : function (n) {
+        //         return !isNaN(parseFloat(n)) && isFinite(n);
+        //     }
+        //
+        // }
+        //
+        // Calculator.x = +prompt('Enter first number');
+        // Calculator.y = +prompt('Enter second number');
+        // if (Calculator.isNumeric(Calculator.x) && Calculator.isNumeric(Calculator.y)) {
+        //     console.log(Calculator.calculate(prompt('Enter operator')));
+        // } else {
+        //     console.log('Not correct input');
+        // }
+
+    </script>
+
+    <script>
+        var employees = [];
+        do {
+            var employee = {};
+            employee.name = prompt('Enter name');
+            employee.sName = prompt('Enter surname');
+            employee.age = prompt('Enter age');
+            employee.occupation = prompt('Enter occupation');
+            employee.show = function () {
+                for (prop in this) {
+                    if (typeof this[prop] == 'function') {
+                        break;
+                    }
+                    console.log(prop + ' -> ' + this[prop]);
+                }
+            };
+            employees.push(employee);
+        } while (confirm('Continue'));
+
+        for (var i = 0; i < employees.length; i++) {
+            employees[i].show();
+        }
+    </script>
+
+    </body>
+    </html>

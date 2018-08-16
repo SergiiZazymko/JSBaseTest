@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+    <ul id="unorderedList">
+        <li>1</li>
+        <li>2</li>
+    </ul>
+    <form action="">
+        <input type="text" name="hello">
+        <input type="button" onclick="append(this.form)" value="Add elem">
+        <input type="button" onclick="replace(this.form)" value="Replace last elem">
+        <input type="button" onclick="restore()" value="Restore">
+        <input type="button" onclick="newTitle(this.form)" value="Set new title">
+    </form>
+
+    <script>
+        function append(form) {
+            if (form.hello.value) {
+                var newListItem = document.createElement('li');
+                newListItem.innerHTML = form.hello.value;
+                document.getElementById('unorderedList').appendChild(newListItem);
+            }
+        }
+
+        function replace(form) {
+            if (form.hello.value) {
+                var replacement = document.createElement('li');
+                var lastChild = document.getElementById('unorderedList').lastChild;
+                replacement.innerHTML = '<b>' + form.hello.value + '</b>';
+                document.getElementById('unorderedList').replaceChild(replacement, lastChild);
+            }
+        }
+
+        function restore() {
+            var mainElem = document.getElementById('unorderedList');
+            console.log(mainElem.childNodes);
+            while(mainElem.childNodes.length > 2) {
+                mainElem.removeChild(mainElem.lastChild);
+            }
+        }
+
+        function newTitle(form) {
+            var div = document.createElement('div');
+            div.innerHTML = '<h1>' + form.hello.value + '</h1>';
+            document.body.insertBefore(div, document.getElementById('unorderedList'));
+        }
+
+    </script>
+
+</body>
+</html>

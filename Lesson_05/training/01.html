@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="change" onclick="changeColor();">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi dolores exercitationem itaque non officiis quidem quos tempora velit veniam. Beatae, commodi ducimus earum enim mollitia odio perspiciatis quas reprehenderit ut!</p>
+	</div>
+	<script>
+		function changeColor() {
+			var div = document.getElementById('change');
+			console.log(div);
+			console.log(typeof div);
+			div.style.color = 'red';
+		}
+	</script>
+</body>
+</html>
